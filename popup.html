@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scrum Sidekick</title>    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-top">
+            <h1>Scrum Sidekick</h1>
+            <button id="settings-trigger" class="icon-button" title="Manage Team">⚙️</button>
+        </div>
+        
+        <div class="dashboard-stats">
+            <!-- Timer Section (Left) -->
+            <div id="timer-section" class="timer-section">
+                <div id="timer-setup" class="timer-setup">
+                    <div class="timer-input-group">
+                        <button id="timer-minus" class="timer-adjust-btn" title="-5 minutes">-</button>
+                        <input type="number" id="timer-input" value="30" min="1" max="180" aria-label="Meeting duration in minutes">
+                        <button id="timer-plus" class="timer-adjust-btn" title="+5 minutes">+</button>
+                    </div>
+                    <button id="timer-start" class="primary-button">Start Meeting</button>
+                </div>
+                <div id="timer-running" class="timer-running hidden">
+                    <div id="timer-display" class="timer-display">00:00</div>
+                    <div class="timer-progress-container">
+                        <div id="timer-progress-bar" class="timer-progress-bar"></div>
+                    </div>
+                    <button id="timer-reset" class="secondary-button small-button">Stop / Reset</button>
+                </div>
+            </div>
+            
+            <!-- Stats Section (Right) -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span id="spoken-count-display" class="stat-value">0/0</span>
+                    <span class="stat-label">Spoken</span>
+                </div>
+                <div class="stat-item">
+                    <span id="part-b-count-display" class="stat-value">0</span>
+                    <span class="stat-label">Part B Items</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-search">
+        <input type="search"
+               id="user-search-input"
+               placeholder="Search team members..."
+               aria-label="Search team members"
+               autocomplete="off"
+               spellcheck="false">
+    </div>
+ 
+    <div id="user-list"></div>
+
+    <!-- Confetti container for celebration animation -->
+    <div id="confetti-container"></div>
+
+    <!-- Random Picker Overlay -->
+    <div id="picker-overlay" class="picker-overlay hidden">
+        <div class="picker-content">
+            <div class="picker-window-container">
+                <div class="picker-selection-highlight"></div>
+                <div id="picker-window" class="picker-window">
+                    <div id="picker-reel" class="picker-reel"></div>
+                </div>
+            </div>
+            <div class="picker-actions">
+                <button id="picker-close-button" class="secondary-button hidden">Close</button>
+                <button id="picker-mark-spoken-button" class="primary-button hidden">Mark Spoken</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-buttons">
+        <button id="random-pick-button">🎰 Pick Next</button>
+        <button id="shuffle-button">🎲 Shuffle</button>
+        <button id="reset-button">Reset</button>
+    </div>
+
+    
+    
+    <hr>
+
+
+    <!-- Part B Section -->
+    <div id="part-b-section" class="part-b-section">
+        <h3 class="part-b-title">Part B Items</h3>
+        <div class="part-b-controls">
+            <input type="text" id="part-b-input" placeholder="Add follow-up topic..." maxlength="100">
+            <button id="add-part-b-button" class="primary-button">Add</button>
+        </div>
+        <div id="part-b-list" class="part-b-list"></div>
+        <div class="part-b-actions">
+            <button id="clear-completed-part-b" class="secondary-button small-button">Clear Completed</button>
+        </div>
+    </div>
+
+    <!-- User Manager Modal -->
+    <div id="user-manager-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Team Management</h2>
+                <button id="close-settings-button" class="close-button">&times;</button>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Add Member</h3>
+                <div class="add-user-form">
+                    <input type="text" id="first-name-input" placeholder="First Name" maxlength="20">
+                    <input type="text" id="last-name-input" placeholder="Last Name" maxlength="20">
+                    <button id="add-user-button" class="primary-button">Add</button>
+                </div>
+                <div class="form-help">Press Enter to add quickly</div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Current Team</h3>
+                <div id="manager-user-list" class="manager-user-list">
+                    <!-- User items will be injected here -->
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Import/Export</h3>
+                <div class="data-controls-modal">
+                    <button id="export-button" class="secondary-button small-button">Export Team</button>
+                    <button id="import-button" class="secondary-button small-button">Import Team</button>
+                    <input type="file" id="import-file" accept=".json" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
