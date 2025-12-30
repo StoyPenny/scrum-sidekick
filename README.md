@@ -2,6 +2,11 @@
 
 A Chrome browser extension designed to help Scrum Masters efficiently manage daily stand-ups and team meetings.
 
+<img width="1870" height="1292" alt="image" src="https://github.com/user-attachments/assets/534917f8-fd97-4d18-904e-c9fd593e8db9" />
+
+<img width="473" height="1233" alt="image" src="https://github.com/user-attachments/assets/d4e7e27e-4686-46d6-83a3-e8e05019fcb8" />
+
+
 ## Overview
 
 Scrum Sidekick is a sidebar extension that provides essential meeting management tools in a convenient side panel. Track team participation, manage follow-up topics, and keep meetings on schedule - all without leaving your browser.
